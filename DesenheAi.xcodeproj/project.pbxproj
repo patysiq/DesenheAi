@@ -15,6 +15,8 @@
 		7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */; };
 		7B27E86525CCCA3600BFFFE4 /* DesenheAiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E86425CCCA3600BFFFE4 /* DesenheAiTests.swift */; };
 		7B27E87025CCCA3600BFFFE4 /* DesenheAiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E86F25CCCA3600BFFFE4 /* DesenheAiUITests.swift */; };
+		7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E88025CD786D00BFFFE4 /* CanvasView.swift */; };
+		7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E89925CE173A00BFFFE4 /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		7B27E86B25CCCA3600BFFFE4 /* DesenheAiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesenheAiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B27E86F25CCCA3600BFFFE4 /* DesenheAiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesenheAiUITests.swift; sourceTree = "<group>"; };
 		7B27E87125CCCA3600BFFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B27E88025CD786D00BFFFE4 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		7B27E89925CE173A00BFFFE4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Little Days Alt.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +104,14 @@
 		7B27E84C25CCCA3500BFFFE4 /* DesenheAi */ = {
 			isa = PBXGroup;
 			children = (
+				7B27E8A125CE26BA00BFFFE4 /* Resourses */,
 				7B27E84D25CCCA3500BFFFE4 /* DesenheAiApp.swift */,
 				7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */,
+				7B27E88025CD786D00BFFFE4 /* CanvasView.swift */,
 				7B27E85125CCCA3600BFFFE4 /* Assets.xcassets */,
 				7B27E85625CCCA3600BFFFE4 /* Persistence.swift */,
 				7B27E85B25CCCA3600BFFFE4 /* Info.plist */,
-				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
+				7B27E89525CE171800BFFFE4 /* Model */,
 				7B27E85325CCCA3600BFFFE4 /* Preview Content */,
 			);
 			path = DesenheAi;
@@ -134,6 +141,23 @@
 				7B27E87125CCCA3600BFFFE4 /* Info.plist */,
 			);
 			path = DesenheAiUITests;
+			sourceTree = "<group>";
+		};
+		7B27E89525CE171800BFFFE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
+				7B27E89925CE173A00BFFFE4 /* ImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B27E8A125CE26BA00BFFFE4 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +291,10 @@
 			files = (
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,
 				7B27E85725CCCA3600BFFFE4 /* Persistence.swift in Sources */,
+				7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */,
 				7B27E85025CCCA3500BFFFE4 /* ContentView.swift in Sources */,
 				7B27E84E25CCCA3500BFFFE4 /* DesenheAiApp.swift in Sources */,
+				7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
