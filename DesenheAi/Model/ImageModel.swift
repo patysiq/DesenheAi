@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ImageModel {
+class ImageModel {
     
-    let labels: [String] = [ "aircraft carrier", "airplane", "alarm clock", "ambulance", "angel",
+    static let labels: [String] = [ "aircraft carrier", "airplane", "alarm clock", "ambulance", "angel",
                            "ant", "apple", "backpack", "banana", "bandage", "barn", "baseball", "bat", "basket",
                            "bathtub", "beach","bear", "beard", "bed", "bee", "belt", "bench", "bicycle", "binoculars",
                            "bird", "book", "boomerang", "bottlecap", "bowtie", "brain", "bread", "broccoli", "bucket",
@@ -31,7 +31,7 @@ struct ImageModel {
                            "The Mona Lisa", "tiger", "tooth", "toothbrush", "tractor", "traffic light", "train", "tree", "triangle", "truck",
                            "umbrella", "vase", "watermelon", "wheel", "windmill", "zebra", "zigzag"]
     
-    let labelBR: [String] = [ "porta-aviões", "avião", "despertador", "ambulância", "anjo",
+    static let labelBR: [String] = [ "porta-aviões", "avião", "despertador", "ambulância", "anjo",
                           "formiga", "maçã", "mochila", "banana", "curativo", "celeiro", "beisebol", "bastão", "cesta",
                           "banheira", "praia","urso", "barba", "cama", "abelha", "cinto", "banco", "bicicleta", "binóculos",
                           "pássro", "livro", "boomerangue", "tampa de garrafa", "gravata borboleta", "cérebro", "pão", "brócolis", "balde",
@@ -53,8 +53,4 @@ struct ImageModel {
                           "A Mona Lisa", "tigre", "dente", "escova de dentes", "trator", "semáforo", "trem", "árvore", "triângulo", "caminhão",
                           "guarda-chuva", "vaso", "melancia", "roda", "moinho de vento", "zebra", "zigue-zague"]
     
-    func getIndex(_ guide: String) -> Int {
-        let index = labels.firstIndex(of: guide) ?? 0
-        return index
-    }
 }

@@ -17,6 +17,9 @@
 		7B27E87025CCCA3600BFFFE4 /* DesenheAiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E86F25CCCA3600BFFFE4 /* DesenheAiUITests.swift */; };
 		7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E88025CD786D00BFFFE4 /* CanvasView.swift */; };
 		7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E89925CE173A00BFFFE4 /* ImageModel.swift */; };
+		7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */; };
+		7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AB25CECFCB00BFFFE4 /* star.json */; };
+		7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		7B27E88025CD786D00BFFFE4 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		7B27E89925CE173A00BFFFE4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Little Days Alt.ttf"; sourceTree = "<group>"; };
+		7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "star-smash.json"; sourceTree = "<group>"; };
+		7B27E8AB25CECFCB00BFFFE4 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
+		7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Desenheai.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 		7B27E89525CE171800BFFFE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */,
 				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
 				7B27E89925CE173A00BFFFE4 /* ImageModel.swift */,
 			);
@@ -155,9 +162,27 @@
 		7B27E8A125CE26BA00BFFFE4 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */,
+				7B27E8A925CECFBC00BFFFE4 /* Animations */,
+				7B27E8A825CECFB500BFFFE4 /* Fonts */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		7B27E8A825CECFB500BFFFE4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7B27E8A925CECFBC00BFFFE4 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */,
+				7B27E8AB25CECFCB00BFFFE4 /* star.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +290,8 @@
 			files = (
 				7B27E85525CCCA3600BFFFE4 /* Preview Assets.xcassets in Resources */,
 				7B27E85225CCCA3600BFFFE4 /* Assets.xcassets in Resources */,
+				7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */,
+				7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */,
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,
 				7B27E85725CCCA3600BFFFE4 /* Persistence.swift in Sources */,
 				7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */,
