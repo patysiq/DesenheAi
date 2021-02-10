@@ -15,7 +15,8 @@ struct CanvasView: UIViewRepresentable {
     
     
     func makeUIView(context: Context) -> some UIView {
-        canvasView.tool = PKInkingTool(.pen, color: .black, width: 30)
+        canvasView.tool = PKInkingTool(.pen, color: .white, width: 40)
+        canvasView.backgroundColor = .black
         canvasView.delegate = context.coordinator
         
         #if targetEnvironment(simulator)

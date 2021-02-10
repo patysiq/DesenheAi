@@ -20,6 +20,8 @@
 		7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */; };
 		7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AB25CECFCB00BFFFE4 /* star.json */; };
 		7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */; };
+		7BB8604425D44F9400A38313 /* TextMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8604325D44F9400A38313 /* TextMark.swift */; };
+		7BB8604E25D4703900A38313 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8604D25D4703900A38313 /* Time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "star-smash.json"; sourceTree = "<group>"; };
 		7B27E8AB25CECFCB00BFFFE4 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
 		7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Desenheai.mlmodel; sourceTree = "<group>"; };
+		7BB8604325D44F9400A38313 /* TextMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMark.swift; sourceTree = "<group>"; };
+		7BB8604D25D4703900A38313 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +116,8 @@
 			children = (
 				7B27E8A125CE26BA00BFFFE4 /* Resourses */,
 				7B27E84D25CCCA3500BFFFE4 /* DesenheAiApp.swift */,
-				7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */,
-				7B27E88025CD786D00BFFFE4 /* CanvasView.swift */,
+				7BB8605625D4894300A38313 /* View */,
+				7BB8605225D4893200A38313 /* ViewModel */,
 				7B27E85125CCCA3600BFFFE4 /* Assets.xcassets */,
 				7B27E85625CCCA3600BFFFE4 /* Persistence.swift */,
 				7B27E85B25CCCA3600BFFFE4 /* Info.plist */,
@@ -183,6 +187,24 @@
 				7B27E8AB25CECFCB00BFFFE4 /* star.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		7BB8605225D4893200A38313 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7BB8604D25D4703900A38313 /* Time.swift */,
+				7BB8604325D44F9400A38313 /* TextMark.swift */,
+				7B27E88025CD786D00BFFFE4 /* CanvasView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7BB8605625D4894300A38313 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,10 +339,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */,
+				7BB8604425D44F9400A38313 /* TextMark.swift in Sources */,
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,
 				7B27E85725CCCA3600BFFFE4 /* Persistence.swift in Sources */,
 				7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */,
 				7B27E85025CCCA3500BFFFE4 /* ContentView.swift in Sources */,
+				7BB8604E25D4703900A38313 /* Time.swift in Sources */,
 				7B27E84E25CCCA3500BFFFE4 /* DesenheAiApp.swift in Sources */,
 				7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */,
 			);
