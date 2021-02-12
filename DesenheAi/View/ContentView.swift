@@ -225,7 +225,6 @@ private extension ContentView {
     }
     
     func onSaved() {
-        checkAnswer()
         image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
         previewDrawing = canvasView.drawing
         checkChallenge()
@@ -276,6 +275,7 @@ private extension ContentView {
                 let topResult = sortedResults.first
                    DispatchQueue.main.async {
                         self.currentImage = "\(topResult?.identifier ?? "algo estranho")"
+                        self.checkAnswer()
                          for result in sortedResults {
                             print(result.identifier, result.confidence)
                          }
