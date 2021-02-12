@@ -227,7 +227,6 @@ private extension ContentView {
     func onSaved() {
         checkAnswer()
         image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
-        checkChallenge()
         previewDrawing = canvasView.drawing
         checkChallenge()
     }
