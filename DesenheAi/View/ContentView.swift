@@ -21,137 +21,164 @@ struct ContentView: View {
     
     private var items: FetchedResults<Item>
     
-    @State private var timeRemaining = 60
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var isActive = true
+    @State private var counter: Int = 0
+    var countTo: Int = 60
+    
+    @State private var flagBR = "🇧🇷".image()
+    @State private var flagUS = "🇺🇸".image()
     
     @State private var showingUS = false
     @State private var showingScore = false
     @State private var showingMessagePhoto = false
-    @State private var index = Int.random(in: 0...58)
     
     @State private var canvasView = PKCanvasView()
     @State private var image: UIImage = UIImage()
     @State var previewDrawing: PKDrawing? = nil
     
-    @State private var guideResult:String?
     @State private var score: Int16 = 0
+    @State private var scoreTitle = ""
     
     @State private var currentImage: String?
+    @State private var guideResultUS: String?
+    @State private var guideResultBR: String?
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 15.0) {
-                HStack(alignment: .top) {
-                    Text(showingUS ? "Your score: \(score)" : "Seu escore: \(score)")
-                        .titleStyle()
-                    Spacer(minLength: 20.0)
-                        CountdownView(counter: 0 , countTo: timeRemaining)
-                            .frame(width: 55, height: 55, alignment: .center)
-                }
-                
-                VStack (spacing: 8.0) {
-                    Text(showingUS ? "Draw: \(guideResult ?? "Free Play")" : "Desenhe: \(guideResult ?? "Livre")" )
-                        .font(Font.custom("Little Days Alt.ttf", size: 20))
-                        .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 15)
-                        .background(
-                            Color.init(red: 0, green: 133/255, blue: 1, opacity: 0.7)
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                    
-                    CanvasView(canvasView: $canvasView, onSaved: onSaved)
-                        .frame(width: 410, height: 410, alignment: .center)
-                        .cornerRadius(20.0)
-                        .background(Color.white)
-                        .edgesIgnoringSafeArea(.bottom)
-                    
-                }
-               
-                Text(showingUS ? "Did you draw \(currentImage?.capitalized ?? "something strange")?" : "Você desenhou \(currentImage?.capitalized ?? "algo estranho")?" )
-                    .font(Font.custom("Little Days Alt.ttf", size: 20))
-                    .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 15)
-                    .background(
-                        Color.init(red: 0, green: 133/255, blue: 1, opacity: 0.7)
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                
-                
-                Button(showingUS ? "New Challenge" : "Próximo desafio") {
-                    newChallenge()
-                }
-                .padding(15)
-                .background(Color.init(red: 133/255, green: 195/255, blue: 1, opacity: 0.7))
-                .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
-                .clipShape(RoundedRectangle(cornerRadius: 20.0))
-            
-            }
-            .onAppear {
-                self.score = Int16(items.endIndex)
-                newChallenge()
-            }
-            .alert(isPresented: $showingScore) {
-                Alert(title: Text(showingUS ? "Correto" : "Great!"), message: Text(showingUS ? "Seu escore é : \(score)" :  "Your score is \(score)"), dismissButton: .default(Text("Continue")) {
-                    addItem()
-                    newChallenge()
-                })
-            }
-            .alert(isPresented: $showingMessagePhoto) {
-                Alert(title: Text(showingUS ? "Deseja salvar?" : "Save?"), message: Text(showingUS ? "Vamos salvar na galeria" : "We want to save into library photos."), dismissButton: .default(Text("Continue")) {
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                })
-            }
-
-            .navigationBarTitle(Text("Desenhe aí"))
-            .navigationBarItems(
-                leading:
+            ZStack {
+                Color(red: 219/255, green: 221/255, blue: 228/255, opacity: 1)
+                    .edgesIgnoringSafeArea(.all)
+                VStack(spacing: 15.0) {
+                    Spacer()
                     HStack (spacing: 10) {
                         Button(action: {onClearTapped()}) {
-                            Image("trash")
+                            Image(systemName: "trash")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 25, height: 25, alignment: .center)
-                                .padding(15)
+                                .imageStyle()
                         }
                         Button(action: {onUndoTapped()}) {
-                            Image("return")
+                            Image(systemName: "gobackward")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 25, height: 25, alignment: .center)
-                                .padding(15)
+                                .imageStyle()
                         }
                         Button(action: {imageGalery()}) {
                             Image("download-image")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 25, height: 25, alignment: .center)
-                                .padding(15)
+                                .imageStyle()
                         }
                         Button(action: {newChallenge()}) {
                             Image("next")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 35, height: 25, alignment: .center)
-                                .padding(15)
+                                .imageStyle()
                         }
-                    },
+                        ZStack{
+                            Circle()
+                                .fill(Color.clear)
+                                .frame(width: 50, height: 50)
+                                .overlay(
+                                    Circle().stroke(Color.black, lineWidth: 5)
+                            )
+                            Circle()
+                                .fill(Color.clear)
+                                .frame(width: 50, height: 50)
+                                .overlay(
+                                    Circle().trim(from:0, to: progress())
+                                        .stroke(
+                                            style: StrokeStyle(
+                                                lineWidth: 5,
+                                                lineCap: .round,
+                                                lineJoin:.round
+                                            )
+                                    )
+                                        .foregroundColor(
+                                            (completed() ? Color.red : Color.blue)
+                                    ).animation(
+                                        .easeInOut(duration: 0.2)
+                                    )
+                            )
+                            Text(counterToMinutes())
+                                .font(.custom("Avenir Next", size: 17))
+                                .fontWeight(.black)
+                        }
+                        .padding()
+                    }
+                    VStack {
+                        Text(!showingUS ? "Desenhe: \(LabelBRView.getBR(guideResultUS ?? "Desenho Livre"))" : "Draw: \(guideResultUS ?? "Free play")")
+                            .titleStyleBlue()
+                        
+                        CanvasView(canvasView: $canvasView, onSaved: onSaved)
+                            .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxX, alignment: .center)
+                            .cornerRadius(20.0)
+                            .background(Color.clear)
+                            .shadow(radius: 8)
+                    }
+                   
+                    Text(showingUS ? "Did you draw \(currentImage ?? "something strange")?" : "Você desenhou \(LabelBRView.getBR(currentImage ?? "algo estranho"))?")
+                        .titleStyleBlue()
+                    
+                    Spacer()
+                    Button(showingUS ? "New Challenge" : "Próximo desafio") {
+                        newChallenge()
+                    }
+                    .font(Font.custom("Avenir Next", size: 25))
+                    .font(.largeTitle)
+                    .edgesIgnoringSafeArea(.bottom)
+                    .frame(width: UIScreen.main.bounds.maxX, height: 80, alignment: .center)
+                    .background(Color.init(red: 133/255, green: 195/255, blue: 1, opacity: 0.7))
+                    .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
+                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                }
+            }
+            .onAppear {
+                self.score = Int16(items.endIndex)
+                isActive = true
+                newChallenge()
+            }
+            .onReceive(timer) { time in
+                guard self.isActive else { return }
+                if (self.counter < self.countTo){
+                    self.counter += 1
+                }
+            }
+            .alert(isPresented: $showingScore) {
+                Alert(title: Text(scoreTitle), message: Text(showingUS ? "Seu escore é : \(score)" :  "Your score is \(score)"), dismissButton: .default(Text("Continue")) {
+                    addItem()
+                    newChallenge()
+                })
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                self.isActive = false
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                self.isActive = true
+            }
+            .navigationBarTitle(Text("Desenhe aí"))
+            .navigationBarItems(
+                leading:
+                    HStack (alignment: .center) {
+                    Text(showingUS ? "Your score: \(score)" : "Seu escore: \(score)")
+                        .titleStyle()
+            } ,
                 trailing:
                     HStack {
                         Toggle(isOn: $showingUS){
-                            Image("US")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 35, height: 25, alignment: .center)
-                                .cornerRadius(5.0)
+                            Image(uiImage: showingUS ? flagUS! : flagBR!)
+                                .frame(width: 45, height: 45, alignment: .center)
                         }
-                        
+                        .padding()
                     }
                 
             )
-            
         }
-        
     }
     private func addItem() {
         withAnimation {
@@ -165,24 +192,29 @@ struct ContentView: View {
             }
         }
     }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+
 }
 
 // MARK: - Game methods
 
 private extension ContentView {
+    
+    func completed() -> Bool {
+        return progress() == 1
+    }
+    
+    func progress() -> CGFloat {
+        return (CGFloat(counter) / CGFloat(countTo))
+    }
+    
+    func counterToMinutes() -> String {
+        let currentTime = countTo - counter
+        let seconds = currentTime % 60
+        let minutes = Int(currentTime / 60)
+        
+        return "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
+    }
+
     func onClearTapped() {
         canvasView.drawing = PKDrawing()
     }
@@ -193,21 +225,45 @@ private extension ContentView {
     }
     
     func onSaved() {
+        checkAnswer()
         image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
+        checkChallenge()
         previewDrawing = canvasView.drawing
         checkChallenge()
     }
     
     func imageGalery() {
-        showingMessagePhoto = true
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     
     func newChallenge(){
+        counter = 0
+        isActive = true
+        let index = Int.random(in: 0...200)
         onClearTapped()
-        if showingUS {
-            guideResult = ImageModel.labels[index].capitalized
+        guideResultUS = LabelUSView.getChallenge(index)
+        showingScore = false
+    }
+    
+    func checkAnswer() {
+        if currentImage == guideResultUS {
+            score += 1
+            if showingUS {
+                scoreTitle = "🏆 Great!"
+            } else {
+                scoreTitle = "🏆 Correto!"
+          }
+        showingScore = true
         } else {
-            guideResult = ImageModel.labelBR[index].capitalized
+            if progress() == 1 {
+                if showingUS {
+                    scoreTitle = "⌛️ Wrong. Time is over. Start again..."
+                } else {
+                    scoreTitle = "⌛️ O tempo acabou. Vamos mais uma vez?"
+                }
+                showingScore = true
+                isActive = false
+            }
         }
     }
     
@@ -217,19 +273,16 @@ private extension ContentView {
               let visionModel = try? VNCoreMLModel(for: coreMLModel.model) else {return}
         
         let request = VNCoreMLRequest(model: visionModel, completionHandler: { [] request, error in
-                                        if let sortedResults = request.results! as? [VNClassificationObservation] {
-                                            let topResult = sortedResults.first
-                                            DispatchQueue.main.async {
-                                                self.currentImage = "\(topResult?.identifier ?? "algo estranho")"
-                                                for result in sortedResults {
-                                                    print(result.identifier, result.confidence)
-                                                }
-                                                print("-----------------------")
-                                                print(UIScreen.main.scale)
-                                                print(image.size)
-                                                
-                                            }
-                                        } })
+            if let sortedResults = request.results! as? [VNClassificationObservation] {
+                let topResult = sortedResults.first
+                   DispatchQueue.main.async {
+                        self.currentImage = "\(topResult?.identifier ?? "algo estranho")"
+                         for result in sortedResults {
+                            print(result.identifier, result.confidence)
+                         }
+                              print("-----------------------")
+                   }
+         } })
         request.imageCropAndScaleOption = .centerCrop
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -244,20 +297,6 @@ private extension ContentView {
             }
         }
     }
-    
-    
-    
-    //    private func checkChallenge() {
-    //        guard let currentChallenge = currentChallenge,
-    //            let currentPrediction = currentPrediction else {
-    //            return
-    //        }
-    //
-    //        if currentPrediction.category == currentChallenge {
-    //            newChallenge()
-    //        }
-    //    }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

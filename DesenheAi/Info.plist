@@ -35,10 +35,10 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
+		<key>UIImageName</key>
+		<string>icon_desenhai</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<true/>
-		<key>UIImageName</key>
-		<string>launch_image</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
@@ -49,7 +49,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Vamos salvar seu desenho na sua galeria de fotos.</string>
+	<string>Vamos salvar seu desenho na galeria de fotos.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

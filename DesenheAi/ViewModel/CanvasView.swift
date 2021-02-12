@@ -18,10 +18,7 @@ struct CanvasView: UIViewRepresentable {
         canvasView.tool = PKInkingTool(.pen, color: .white, width: 40)
         canvasView.backgroundColor = .black
         canvasView.delegate = context.coordinator
-        
-        #if targetEnvironment(simulator)
         canvasView.drawingPolicy = .anyInput
-        #endif
         return canvasView
     }
     
