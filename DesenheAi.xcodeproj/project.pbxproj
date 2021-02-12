@@ -17,6 +17,15 @@
 		7B27E87025CCCA3600BFFFE4 /* DesenheAiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E86F25CCCA3600BFFFE4 /* DesenheAiUITests.swift */; };
 		7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E88025CD786D00BFFFE4 /* CanvasView.swift */; };
 		7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E89925CE173A00BFFFE4 /* ImageModel.swift */; };
+		7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */; };
+		7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AB25CECFCB00BFFFE4 /* star.json */; };
+		7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */; };
+		7B72747225D553E0000F3742 /* LabelUS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72747125D553E0000F3742 /* LabelUS.swift */; };
+		7B72747A25D55405000F3742 /* LabelBR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72747925D55405000F3742 /* LabelBR.swift */; };
+		7B72748225D56888000F3742 /* ImageMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72748125D56888000F3742 /* ImageMark.swift */; };
+		7B72748725D5775D000F3742 /* ImageEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72748625D5775D000F3742 /* ImageEmoji.swift */; };
+		7BB8604425D44F9400A38313 /* TextMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8604325D44F9400A38313 /* TextMark.swift */; };
+		7BB8606325D48D7500A38313 /* TextMarkBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8606225D48D7500A38313 /* TextMarkBlue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +62,15 @@
 		7B27E87125CCCA3600BFFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B27E88025CD786D00BFFFE4 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		7B27E89925CE173A00BFFFE4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
-		7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Little Days Alt.ttf"; sourceTree = "<group>"; };
+		7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "star-smash.json"; sourceTree = "<group>"; };
+		7B27E8AB25CECFCB00BFFFE4 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
+		7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Desenheai.mlmodel; sourceTree = "<group>"; };
+		7B72747125D553E0000F3742 /* LabelUS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUS.swift; sourceTree = "<group>"; };
+		7B72747925D55405000F3742 /* LabelBR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBR.swift; sourceTree = "<group>"; };
+		7B72748125D56888000F3742 /* ImageMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMark.swift; sourceTree = "<group>"; };
+		7B72748625D5775D000F3742 /* ImageEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEmoji.swift; sourceTree = "<group>"; };
+		7BB8604325D44F9400A38313 /* TextMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMark.swift; sourceTree = "<group>"; };
+		7BB8606225D48D7500A38313 /* TextMarkBlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMarkBlue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +123,8 @@
 			children = (
 				7B27E8A125CE26BA00BFFFE4 /* Resourses */,
 				7B27E84D25CCCA3500BFFFE4 /* DesenheAiApp.swift */,
-				7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */,
-				7B27E88025CD786D00BFFFE4 /* CanvasView.swift */,
+				7BB8605625D4894300A38313 /* View */,
+				7BB8605225D4893200A38313 /* ViewModel */,
 				7B27E85125CCCA3600BFFFE4 /* Assets.xcassets */,
 				7B27E85625CCCA3600BFFFE4 /* Persistence.swift */,
 				7B27E85B25CCCA3600BFFFE4 /* Info.plist */,
@@ -146,8 +163,9 @@
 		7B27E89525CE171800BFFFE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
 				7B27E89925CE173A00BFFFE4 /* ImageModel.swift */,
+				7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */,
+				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,9 +173,40 @@
 		7B27E8A125CE26BA00BFFFE4 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				7B27E8A325CEACF200BFFFE4 /* Little Days Alt.ttf */,
+				7B27E8A925CECFBC00BFFFE4 /* Animations */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		7B27E8A925CECFBC00BFFFE4 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */,
+				7B27E8AB25CECFCB00BFFFE4 /* star.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		7BB8605225D4893200A38313 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7BB8604325D44F9400A38313 /* TextMark.swift */,
+				7B27E88025CD786D00BFFFE4 /* CanvasView.swift */,
+				7BB8606225D48D7500A38313 /* TextMarkBlue.swift */,
+				7B72747125D553E0000F3742 /* LabelUS.swift */,
+				7B72747925D55405000F3742 /* LabelBR.swift */,
+				7B72748125D56888000F3742 /* ImageMark.swift */,
+				7B72748625D5775D000F3742 /* ImageEmoji.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7BB8605625D4894300A38313 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +314,8 @@
 			files = (
 				7B27E85525CCCA3600BFFFE4 /* Preview Assets.xcassets in Resources */,
 				7B27E85225CCCA3600BFFFE4 /* Assets.xcassets in Resources */,
+				7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */,
+				7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +340,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */,
+				7BB8604425D44F9400A38313 /* TextMark.swift in Sources */,
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,
+				7BB8606325D48D7500A38313 /* TextMarkBlue.swift in Sources */,
+				7B72748725D5775D000F3742 /* ImageEmoji.swift in Sources */,
 				7B27E85725CCCA3600BFFFE4 /* Persistence.swift in Sources */,
 				7B27E88125CD786D00BFFFE4 /* CanvasView.swift in Sources */,
+				7B72747225D553E0000F3742 /* LabelUS.swift in Sources */,
 				7B27E85025CCCA3500BFFFE4 /* ContentView.swift in Sources */,
+				7B72748225D56888000F3742 /* ImageMark.swift in Sources */,
+				7B72747A25D55405000F3742 /* LabelBR.swift in Sources */,
 				7B27E84E25CCCA3500BFFFE4 /* DesenheAiApp.swift in Sources */,
 				7B27E89A25CE173A00BFFFE4 /* ImageModel.swift in Sources */,
 			);
