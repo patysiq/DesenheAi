@@ -27,6 +27,8 @@
 		7B72748725D5775D000F3742 /* ImageEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72748625D5775D000F3742 /* ImageEmoji.swift */; };
 		7BB8604425D44F9400A38313 /* TextMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8604325D44F9400A38313 /* TextMark.swift */; };
 		7BB8606325D48D7500A38313 /* TextMarkBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8606225D48D7500A38313 /* TextMarkBlue.swift */; };
+		7BD58C5825DC019500A86FC0 /* Persistecetest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD58C5725DC019500A86FC0 /* Persistecetest.swift */; };
+		7BD6ED6625DBED8700EB5D11 /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6ED6525DBED8700EB5D11 /* ModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		7B72748625D5775D000F3742 /* ImageEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEmoji.swift; sourceTree = "<group>"; };
 		7BB8604325D44F9400A38313 /* TextMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMark.swift; sourceTree = "<group>"; };
 		7BB8606225D48D7500A38313 /* TextMarkBlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMarkBlue.swift; sourceTree = "<group>"; };
+		7BD58C5725DC019500A86FC0 /* Persistecetest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistecetest.swift; sourceTree = "<group>"; };
+		7BD6ED6525DBED8700EB5D11 /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +132,6 @@
 				7BB8605625D4894300A38313 /* View */,
 				7BB8605225D4893200A38313 /* ViewModel */,
 				7B27E85125CCCA3600BFFFE4 /* Assets.xcassets */,
-				7B27E85625CCCA3600BFFFE4 /* Persistence.swift */,
 				7B27E85B25CCCA3600BFFFE4 /* Info.plist */,
 				7B27E89525CE171800BFFFE4 /* Model */,
 				7B27E85325CCCA3600BFFFE4 /* Preview Content */,
@@ -148,7 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				7B27E86425CCCA3600BFFFE4 /* DesenheAiTests.swift */,
+				7BD6ED6525DBED8700EB5D11 /* ModelTest.swift */,
 				7B27E86625CCCA3600BFFFE4 /* Info.plist */,
+				7BD58C5725DC019500A86FC0 /* Persistecetest.swift */,
 			);
 			path = DesenheAiTests;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		7B27E89525CE171800BFFFE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B27E85625CCCA3600BFFFE4 /* Persistence.swift */,
 				7B27E89925CE173A00BFFFE4 /* ImageModel.swift */,
 				7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */,
 				7B27E85825CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld */,
@@ -365,6 +371,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B27E86525CCCA3600BFFFE4 /* DesenheAiTests.swift in Sources */,
+				7BD6ED6625DBED8700EB5D11 /* ModelTest.swift in Sources */,
+				7BD58C5825DC019500A86FC0 /* Persistecetest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

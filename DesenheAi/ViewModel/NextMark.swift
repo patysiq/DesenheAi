@@ -15,7 +15,7 @@ struct NextMark: ViewModifier {
             .foregroundColor(Color.black)
             .font(.headline)
             .edgesIgnoringSafeArea(.bottom)
-            .frame(width: UIScreen.main.bounds.maxX, height: 80, alignment: .center)
+            .frame(width: UIScreen.main.bounds.maxX, height: 85, alignment: .center)
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20.0))
             .shadow(radius: 8)

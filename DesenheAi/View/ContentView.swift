@@ -26,7 +26,6 @@ struct ContentView: View {
     @State private var counter: Int = 0
     var countTo: Int = 60
     
-    @State private var flagBR = "🇧🇷".image()
     @State private var flagUS = "🇺🇸".image()
     
     @State private var showingUS = false
@@ -111,12 +110,14 @@ struct ContentView: View {
                     }
                     Text(showingUS ? "Did you draw \(currentImage ?? "something strange")?" : "Você desenhou \(LabelBRView.getBR(currentImage ?? "algo estranho"))?")
                         .titleStyleBlue()
-                    
-                    Button(showingUS ? "New Challenge" : "Próximo desafio") {
-                        newChallenge()
+                    VStack {
+                        Spacer()
+                        Button(showingUS ? "New Challenge" : "Próximo desafio") {
+                            newChallenge()
+                        }
+                        .titleNextButton()
+                        .padding(.top, 55)
                     }
-                    .titleNextButton()
-                    .padding(.top, 50)
                 }
             }
             .onAppear {
@@ -157,7 +158,6 @@ struct ContentView: View {
                         }
                         .padding()
                     }
-                
             )
         }
     }
@@ -249,12 +249,16 @@ private extension ContentView {
             if let sortedResults = request.results! as? [VNClassificationObservation] {
                 let topResult = sortedResults.first
                    DispatchQueue.main.async {
+                    for result in sortedResults {
+                        if result.confidence < 0.1 {
+                                self.currentImage = "something strange"
+                        }
                         self.currentImage = "\(topResult?.identifier ?? "algo estranho")"
                         self.checkAnswer()
-                         for result in sortedResults {
-                            print(result.identifier, result.confidence)
+                        print(result.identifier, result.confidence)
+                        print("-----------------------")
                          }
-                              print("-----------------------")
+                              
                    }
          } })
         request.imageCropAndScaleOption = .centerCrop
