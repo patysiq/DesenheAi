@@ -58,13 +58,7 @@ struct ContentView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 25, height: 25, alignment: .center)
                                 .imageStyle()
-                        }
-                        Button(action: {onUndoTapped()}) {
-                            Image(systemName: "gobackward")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 25, height: 25, alignment: .center)
-                                .imageStyle()
+                                .padding(.leading, 20)
                         }
                         Button(action: {imageGalery()}) {
                             Image("download-image")
@@ -73,13 +67,7 @@ struct ContentView: View {
                                 .frame(width: 25, height: 25, alignment: .center)
                                 .imageStyle()
                         }
-                        Button(action: {newChallenge()}) {
-                            Image("next")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 35, height: 25, alignment: .center)
-                                .imageStyle()
-                        }
+                        Spacer()
                         ZStack{
                             Circle()
                                 .fill(Color.clear)
@@ -109,7 +97,7 @@ struct ContentView: View {
                                 .font(.custom("Avenir Next", size: 17))
                                 .fontWeight(.black)
                         }
-                        .padding()
+                        .padding(.trailing, 20)
                     }
                     VStack {
                         Text(!showingUS ? "Desenhe: \(LabelBRView.getBR(guideResultUS ?? "Desenho Livre"))" : "Draw: \(guideResultUS ?? "Free play")")
@@ -121,21 +109,14 @@ struct ContentView: View {
                             .background(Color.clear)
                             .shadow(radius: 8)
                     }
-                   
                     Text(showingUS ? "Did you draw \(currentImage ?? "something strange")?" : "Você desenhou \(LabelBRView.getBR(currentImage ?? "algo estranho"))?")
                         .titleStyleBlue()
                     
-                    Spacer()
                     Button(showingUS ? "New Challenge" : "Próximo desafio") {
                         newChallenge()
                     }
-                    .font(Font.custom("Avenir Next", size: 25))
-                    .font(.largeTitle)
-                    .edgesIgnoringSafeArea(.bottom)
-                    .frame(width: UIScreen.main.bounds.maxX, height: 80, alignment: .center)
-                    .background(Color.init(red: 133/255, green: 195/255, blue: 1, opacity: 0.7))
-                    .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
-                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                    .titleNextButton()
+                    .padding(.top, 50)
                 }
             }
             .onAppear {
@@ -171,7 +152,7 @@ struct ContentView: View {
                 trailing:
                     HStack {
                         Toggle(isOn: $showingUS){
-                            Image(uiImage: showingUS ? flagUS! : flagBR!)
+                            Image(uiImage: flagUS!)
                                 .frame(width: 45, height: 45, alignment: .center)
                         }
                         .padding()
@@ -218,15 +199,9 @@ private extension ContentView {
     func onClearTapped() {
         canvasView.drawing = PKDrawing()
     }
-    
-    func onUndoTapped() {
-        guard let preview = previewDrawing else {return}
-        canvasView.drawing = preview
-    }
-    
+
     func onSaved() {
         image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
-        previewDrawing = canvasView.drawing
         checkChallenge()
     }
     

@@ -20,6 +20,7 @@
 		7B27E8AC25CECFCB00BFFFE4 /* star-smash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */; };
 		7B27E8AD25CECFCB00BFFFE4 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E8AB25CECFCB00BFFFE4 /* star.json */; };
 		7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */; };
+		7B5CAC0725D748050061C870 /* NextMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC0625D748050061C870 /* NextMark.swift */; };
 		7B72747225D553E0000F3742 /* LabelUS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72747125D553E0000F3742 /* LabelUS.swift */; };
 		7B72747A25D55405000F3742 /* LabelBR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72747925D55405000F3742 /* LabelBR.swift */; };
 		7B72748225D56888000F3742 /* ImageMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72748125D56888000F3742 /* ImageMark.swift */; };
@@ -65,6 +66,7 @@
 		7B27E8AA25CECFCB00BFFFE4 /* star-smash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "star-smash.json"; sourceTree = "<group>"; };
 		7B27E8AB25CECFCB00BFFFE4 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
 		7B27E90B25D1367300BFFFE4 /* Desenheai.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Desenheai.mlmodel; sourceTree = "<group>"; };
+		7B5CAC0625D748050061C870 /* NextMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMark.swift; sourceTree = "<group>"; };
 		7B72747125D553E0000F3742 /* LabelUS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUS.swift; sourceTree = "<group>"; };
 		7B72747925D55405000F3742 /* LabelBR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBR.swift; sourceTree = "<group>"; };
 		7B72748125D56888000F3742 /* ImageMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMark.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				7B72747925D55405000F3742 /* LabelBR.swift */,
 				7B72748125D56888000F3742 /* ImageMark.swift */,
 				7B72748625D5775D000F3742 /* ImageEmoji.swift */,
+				7B5CAC0625D748050061C870 /* NextMark.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */,
+				7B5CAC0725D748050061C870 /* NextMark.swift in Sources */,
 				7BB8604425D44F9400A38313 /* TextMark.swift in Sources */,
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,
 				7BB8606325D48D7500A38313 /* TextMarkBlue.swift in Sources */,
