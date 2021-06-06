@@ -23,13 +23,11 @@ struct ContentView: View {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var isActive = true
-    @State private var counter: Int = 0
-    var countTo: Int = 60
+    @State var counter: Int = 0
     
-    @State private var flagBR = "🇧🇷".image()
     @State private var flagUS = "🇺🇸".image()
     
-    @State private var showingUS = false
+    @State var showingUS = false
     @State private var showingScore = false
     @State private var showingMessagePhoto = false
     
@@ -40,8 +38,8 @@ struct ContentView: View {
     @State private var score: Int16 = 0
     @State private var scoreTitle = ""
     
-    @State private var currentImage: String?
-    @State private var guideResultUS: String?
+    @State var currentImage: String?
+    @State var guideResultUS: String?
     @State private var guideResultBR: String?
     
     var body: some View {
@@ -50,92 +48,31 @@ struct ContentView: View {
                 Color(red: 219/255, green: 221/255, blue: 228/255, opacity: 1)
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 15.0) {
-                    Spacer()
+                    Spacer(minLength: 20)
                     HStack (spacing: 10) {
-                        Button(action: {onClearTapped()}) {
-                            Image(systemName: "trash")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 25, height: 25, alignment: .center)
-                                .imageStyle()
-                        }
-                        Button(action: {onUndoTapped()}) {
-                            Image(systemName: "gobackward")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 25, height: 25, alignment: .center)
-                                .imageStyle()
-                        }
-                        Button(action: {imageGalery()}) {
-                            Image("download-image")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 25, height: 25, alignment: .center)
-                                .imageStyle()
-                        }
-                        Button(action: {newChallenge()}) {
-                            Image("next")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 35, height: 25, alignment: .center)
-                                .imageStyle()
-                        }
-                        ZStack{
-                            Circle()
-                                .fill(Color.clear)
-                                .frame(width: 50, height: 50)
-                                .overlay(
-                                    Circle().stroke(Color.black, lineWidth: 5)
-                            )
-                            Circle()
-                                .fill(Color.clear)
-                                .frame(width: 50, height: 50)
-                                .overlay(
-                                    Circle().trim(from:0, to: progress())
-                                        .stroke(
-                                            style: StrokeStyle(
-                                                lineWidth: 5,
-                                                lineCap: .round,
-                                                lineJoin:.round
-                                            )
-                                    )
-                                        .foregroundColor(
-                                            (completed() ? Color.red : Color.blue)
-                                    ).animation(
-                                        .easeInOut(duration: 0.2)
-                                    )
-                            )
-                            Text(counterToMinutes())
-                                .font(.custom("Avenir Next", size: 17))
-                                .fontWeight(.black)
-                        }
-                        .padding()
+                        GrayCircleButton(actionButton: onClearTapped(), imagetext: "trash")
+                            .padding(.leading, 20)
+                        GrayCircleButton(actionButton: imageGalery(), imagetext: "download-image")
+                        Spacer()
+                        TimerView(counter: $counter)
                     }
                     VStack {
-                        Text(!showingUS ? "Desenhe: \(LabelBRView.getBR(guideResultUS ?? "Desenho Livre"))" : "Draw: \(guideResultUS ?? "Free play")")
-                            .titleStyleBlue()
-                        
+                        ChallengeLabel(showingUS: $showingUS, guideResultUS: $guideResultUS, currentImage: $currentImage, isTop: true)
                         CanvasView(canvasView: $canvasView, onSaved: onSaved)
                             .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxX, alignment: .center)
                             .cornerRadius(20.0)
                             .background(Color.clear)
                             .shadow(radius: 8)
                     }
-                   
-                    Text(showingUS ? "Did you draw \(currentImage ?? "something strange")?" : "Você desenhou \(LabelBRView.getBR(currentImage ?? "algo estranho"))?")
-                        .titleStyleBlue()
-                    
-                    Spacer()
-                    Button(showingUS ? "New Challenge" : "Próximo desafio") {
-                        newChallenge()
+                    ChallengeLabel(showingUS: $showingUS, guideResultUS: $guideResultUS, currentImage: $currentImage, isTop: false)
+                    VStack {
+                        Spacer()
+                        Button(showingUS ? "New Challenge" : "Próximo desafio") {
+                            newChallenge()
+                        }
+                        .titleNextButton()
+                        .padding(.top, 55)
                     }
-                    .font(Font.custom("Avenir Next", size: 25))
-                    .font(.largeTitle)
-                    .edgesIgnoringSafeArea(.bottom)
-                    .frame(width: UIScreen.main.bounds.maxX, height: 80, alignment: .center)
-                    .background(Color.init(red: 133/255, green: 195/255, blue: 1, opacity: 0.7))
-                    .foregroundColor(Color.init(red: 35/255, green: 55/255, blue: 77/255, opacity: 1.0))
-                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 }
             }
             .onAppear {
@@ -145,7 +82,7 @@ struct ContentView: View {
             }
             .onReceive(timer) { time in
                 guard self.isActive else { return }
-                if (self.counter < self.countTo){
+                if (self.counter < 60){
                     self.counter += 1
                 }
             }
@@ -171,12 +108,11 @@ struct ContentView: View {
                 trailing:
                     HStack {
                         Toggle(isOn: $showingUS){
-                            Image(uiImage: showingUS ? flagUS! : flagBR!)
+                            Image(uiImage: flagUS!)
                                 .frame(width: 45, height: 45, alignment: .center)
                         }
                         .padding()
                     }
-                
             )
         }
     }
@@ -198,36 +134,12 @@ struct ContentView: View {
 // MARK: - Game methods
 
 private extension ContentView {
-    
-    func completed() -> Bool {
-        return progress() == 1
-    }
-    
-    func progress() -> CGFloat {
-        return (CGFloat(counter) / CGFloat(countTo))
-    }
-    
-    func counterToMinutes() -> String {
-        let currentTime = countTo - counter
-        let seconds = currentTime % 60
-        let minutes = Int(currentTime / 60)
-        
-        return "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
-    }
-
     func onClearTapped() {
         canvasView.drawing = PKDrawing()
     }
-    
-    func onUndoTapped() {
-        guard let preview = previewDrawing else {return}
-        canvasView.drawing = preview
-    }
-    
+
     func onSaved() {
-        checkAnswer()
         image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
-        previewDrawing = canvasView.drawing
         checkChallenge()
     }
     
@@ -254,7 +166,7 @@ private extension ContentView {
           }
         showingScore = true
         } else {
-            if progress() == 1 {
+            if TimerViewModel.completed(counter) {
                 if showingUS {
                     scoreTitle = "⌛️ Wrong. Time is over. Start again..."
                 } else {
@@ -275,11 +187,16 @@ private extension ContentView {
             if let sortedResults = request.results! as? [VNClassificationObservation] {
                 let topResult = sortedResults.first
                    DispatchQueue.main.async {
+                    for result in sortedResults {
+                        if result.confidence < 0.1 {
+                                self.currentImage = "something strange"
+                        }
                         self.currentImage = "\(topResult?.identifier ?? "algo estranho")"
-                         for result in sortedResults {
-                            print(result.identifier, result.confidence)
+                        self.checkAnswer()
+                        print(result.identifier, result.confidence)
+                        print("-----------------------")
                          }
-                              print("-----------------------")
+                              
                    }
          } })
         request.imageCropAndScaleOption = .centerCrop

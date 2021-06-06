@@ -28,9 +28,9 @@ struct ImageModel {
                                     "radio", "rain", "rainbow", "rhinoceros", "river", "rollerskates", "sailboat", "sandwich", "saw", "scissors",
                                     "sea turtle", "shark", "sheep", "shoe", "shorts", "skateboard", "smiley face", "snake", "snorkel", "sock",
                                     "speedboat", "spider", "square", "stairs", "star", "steak", "strawberry", "streetlight", "submarine", "sun",
-                                    "swan", "sweater", "t-shirt", "table", "teddy-bear", "television", "The Eiffel Tower", "The Great Wall of China",
+                                    "swan", "sweater", "t-shirt", "table", "teddy-bear", "television", "The Eiffel Tower", "The Great Wall",
                                     "The Mona Lisa", "tiger", "tooth", "toothbrush", "tractor", "traffic light", "train", "tree", "triangle", "truck",
-                                    "umbrella", "vase", "watermelon", "wheel", "windmill", "zebra", "zigzag"]
+                                    "umbrella", "vase", "watermelon", "wheel", "windmill", "zebra", "zigzag", "something strange"]
     
     static let labelBR: [String] = [ "porta-aviões", "avião", "despertador", "ambulância", "anjo",
                                     "formiga", "maçã", "mochila", "banana", "curativo", "celeiro", "beisebol", "bastão", "cesta",
@@ -50,9 +50,9 @@ struct ImageModel {
                                     "rádio", "chuva", "arco-íris", "rinoceronte", "rio", "patins", "veleiro", "sanduíche", "serra", "tesoura",
                                     "tartaruga marinha", "tubarão", "ovelha", "sapato", "shorts", "skate", "carinha feliz", "cobra", "snorkel", "meia",
                                     "lancha", "aranha", "quadrado", "escada", "estrela", "bife", "morango", "poste", "submarino", "sol",
-                                    "cisne", "camisola", "t-shirt", "mesa", "urso de peluche", "televisão", "Torre Eiffel", "Grande Muralha da China",
+                                    "cisne", "camisola", "t-shirt", "mesa", "urso de peluche", "televisão", "Torre Eiffel", "Grande Muralha",
                                     "A Mona Lisa", "tigre", "dente", "escova de dentes", "trator", "semáforo", "trem", "árvore", "triângulo", "caminhão",
-                                    "guarda-chuva", "vaso", "melancia", "roda", "moinho de vento", "zebra", "zigue-zague"]
+                                    "guarda-chuva", "vaso", "melancia", "roda", "moinho de vento", "zebra", "zigue-zague", "algo estranho"]
               
 }
 
