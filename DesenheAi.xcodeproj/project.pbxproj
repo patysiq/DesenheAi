@@ -11,7 +11,7 @@
 		7B063C4B266C467D00E78D85 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B063C4A266C467D00E78D85 /* TimerViewModel.swift */; };
 		7B063C4D266C469000E78D85 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B063C4C266C469000E78D85 /* TimerView.swift */; };
 		7B063C4F266C504E00E78D85 /* ChallengeLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B063C4E266C504E00E78D85 /* ChallengeLabels.swift */; };
-		7B063C51266C53BA00E78D85 /* CheckChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B063C50266C53BA00E78D85 /* CheckChallenge.swift */; };
+		7B063C55266D005B00E78D85 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B063C54266D005B00E78D85 /* HomeViewModel.swift */; };
 		7B27E84E25CCCA3500BFFFE4 /* DesenheAiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E84D25CCCA3500BFFFE4 /* DesenheAiApp.swift */; };
 		7B27E85025CCCA3500BFFFE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */; };
 		7B27E85225CCCA3600BFFFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B27E85125CCCA3600BFFFE4 /* Assets.xcassets */; };
@@ -58,7 +58,7 @@
 		7B063C4A266C467D00E78D85 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		7B063C4C266C469000E78D85 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		7B063C4E266C504E00E78D85 /* ChallengeLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeLabels.swift; sourceTree = "<group>"; };
-		7B063C50266C53BA00E78D85 /* CheckChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckChallenge.swift; sourceTree = "<group>"; };
+		7B063C54266D005B00E78D85 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7B27E84A25CCCA3500BFFFE4 /* DesenheAi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesenheAi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B27E84D25CCCA3500BFFFE4 /* DesenheAiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesenheAiApp.swift; sourceTree = "<group>"; };
 		7B27E84F25CCCA3500BFFFE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 				7B72747125D553E0000F3742 /* LabelUS.swift */,
 				7B72747925D55405000F3742 /* LabelBR.swift */,
 				7B063C4A266C467D00E78D85 /* TimerViewModel.swift */,
-				7B063C50266C53BA00E78D85 /* CheckChallenge.swift */,
+				7B063C54266D005B00E78D85 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -389,8 +389,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B27E90C25D1367300BFFFE4 /* Desenheai.mlmodel in Sources */,
-				7B063C51266C53BA00E78D85 /* CheckChallenge.swift in Sources */,
 				7B5CAC0725D748050061C870 /* NextMark.swift in Sources */,
+				7B063C55266D005B00E78D85 /* HomeViewModel.swift in Sources */,
 				7B063C48266C42A500E78D85 /* GrayCircleButton.swift in Sources */,
 				7BB8604425D44F9400A38313 /* TextMark.swift in Sources */,
 				7B27E85A25CCCA3600BFFFE4 /* DesenheAi.xcdatamodeld in Sources */,

@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct GrayCircleButton: View {
-    var actionButton : ()
-    var imagetext: String
+    var function:() -> Void
+    var imageText: String
+    
+    init(function: @escaping () -> Void, imageText: String) {
+        self.function = function
+        self.imageText = imageText
+    }
+    
     var body: some View {
-        Button(action: {actionButton}) {
-            Image(imagetext)
+        Button(action: function) {
+            Image(imageText)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 25, height: 25, alignment: .center)
