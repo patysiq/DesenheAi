@@ -35,10 +35,8 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIImageName</key>
-		<string>icon_desenhai</string>
-		<key>UIImageRespectsSafeAreaInsets</key>
-		<true/>
+		<key>UIColorName</key>
+		<string>Lauch</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
