@@ -61,7 +61,7 @@ struct ContentView: View {
                     VStack {
                         ChallengeLabel(showingUS: $showingUS, guideResultUS: $guideResultUS, currentImage: $currentImage, isTop: true)
                         CanvasView(canvasView: $canvasView, onSaved: homeViewModel.onSaved)
-                            .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxX, alignment: .center)
+                            .frame(width: UIScreen.main.bounds.maxX, height: checkHeight(), alignment: .center)
                             .cornerRadius(20.0)
                             .background(Color.clear)
                             .shadow(radius: 8)
@@ -131,13 +131,27 @@ struct ContentView: View {
         }
     }
     
+    private func checkHeight() -> CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIScreen.main.bounds.maxX
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            if UIDevice.current.name == "iPod touch (7th generation)" || UIDevice.current.localizedModel == "iPhone 8" ||
+                UIDevice.current.localizedModel == "iPhone8 Plus" || UIDevice.current.localizedModel == "iPhone SE (3th generation)" {
+                return (UIScreen.main.bounds.maxX) / 1.3
+            } else {
+                return UIScreen.main.bounds.maxX
+            }
+        }
+        return UIScreen.main.bounds.maxX
+    }
+    
     private func checkDevice() -> CGFloat {
         if UIDevice.current.userInterfaceIdiom == .pad {
             return 20.0
         } else if UIDevice.current.userInterfaceIdiom == .phone {
             if UIDevice.current.name == "iPod touch (7th generation)" || UIDevice.current.localizedModel == "iPhone 8" ||
                 UIDevice.current.localizedModel == "iPhone8 Plus" || UIDevice.current.localizedModel == "iPhone SE (3th generation)" {
-                return 180.0
+                return 110.0
             } else {
                 return 20.0
             }
