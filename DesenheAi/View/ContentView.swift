@@ -50,7 +50,7 @@ struct ContentView: View {
                 Color(red: 219/255, green: 221/255, blue: 228/255, opacity: 1)
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 15.0) {
-                    Spacer(minLength: 20)
+                    Spacer(minLength: checkDevice())
                     HStack (spacing: 10) {
                         GrayCircleButton(function: {homeViewModel.onClearTapped()}, imageText: "trash")
                             .padding(.leading, 20)
@@ -129,6 +129,20 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+    
+    private func checkDevice() -> CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return 20.0
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            if UIDevice.current.name == "iPod touch (7th generation)" || UIDevice.current.localizedModel == "iPhone 8" ||
+                UIDevice.current.localizedModel == "iPhone8 Plus" || UIDevice.current.localizedModel == "iPhone SE (3th generation)" {
+                return 180.0
+            } else {
+                return 20.0
+            }
+        }
+        return 20.0
     }
 
 }
